@@ -1,0 +1,2 @@
+To access the API, Plz use Authorization- Basic Auth use the credentials username = "admin" and password = "contactbook"
+Swagger Url that have all the request methods- http://localhost:8081/swagger-ui/index.html
