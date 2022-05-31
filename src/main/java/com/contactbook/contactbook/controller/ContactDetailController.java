@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/contactbook")
+
+//http://localhost:8081/v3/api-docs/
+//http://localhost:8081/swagger-ui.html
+//http://localhost:8081/v3/api-docs.yaml
+
 public class ContactDetailController {
 
     @Autowired
@@ -44,6 +49,15 @@ public class ContactDetailController {
     public ResponseEntity<Object> editContact(@Validated @RequestBody ContactBookData contactBookData) {
         return ResponseEntity.ok(contactBookServiceImpl.editContact(contactBookData));
     }
+    
+    /*
+     * 
+    @PutMapping("/editcontact/{name}")
+    public ResponseEntity<Object> editContact(@PathVariable String name, 
+    		@Validated @RequestBody ContactBookData contactBookData) {
+        return ResponseEntity.ok(contactBookServiceImpl.editContact(contactBookData));
+    }
+     */
 
     @DeleteMapping("/deletecontact/{mobileNumber}")
     public ResponseEntity<Object> deleteContact(@Validated @PathVariable long mobileNumber) {

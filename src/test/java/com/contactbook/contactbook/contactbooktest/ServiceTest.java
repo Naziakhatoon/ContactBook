@@ -34,7 +34,7 @@ public class ServiceTest {
     private ContactBookRepository contactDetailRepositoryMock;
 
     @Test
-    public void when_getContactBook_then_return_success_response() {
+     void when_getContactBook_then_return_success_response() {
         when(contactDetailRepositoryMock.findAll())
                 .thenReturn(List.of(utilTest.contactDetailEntityMock));
         ResponseData<ContactBookData> contactBookDataResponseData = contactBookServiceImpl.getAllContacts();
@@ -42,7 +42,7 @@ public class ServiceTest {
     }
 
     @Test
-    public void when_getContactByNameAndEmailId_then_return_success_response() {
+     void when_getContactByNameAndEmailId_then_return_success_response() {
         when(contactDetailRepositoryMock.findByNameEqualsIgnoreCaseAndEmailIdEqualsIgnoreCase(anyString(), "nazia@gmail.com"))
                 .thenReturn(Optional.of(utilTest.contactDetailEntityMock));
         ResponseData<ContactBookData> contactBookDataResponseData = contactBookServiceImpl.getContactByNameAndEmailId("nazia", "nazia@gmail.com");
@@ -50,7 +50,7 @@ public class ServiceTest {
 
 
     @Test
-    public void when_getContactByName_then_return_success_response() {
+     void when_getContactByName_then_return_success_response() {
         Pageable pageable = PageRequest.of(0, 10);
         when(contactDetailRepositoryMock.findByNameContains(anyString(), any()))
                 .thenReturn(Page.empty());
@@ -60,7 +60,7 @@ public class ServiceTest {
 
 
     @Test
-    public void when_getContactByEmailId_then_return_success_response() {
+     void when_getContactByEmailId_then_return_success_response() {
         when(contactDetailRepositoryMock.findByEmailIdEqualsIgnoreCase(anyString()))
                 .thenReturn(Optional.of(utilTest.contactDetailEntityMock));
         ResponseData<ContactBookData> contactBookDataResponseData = contactBookServiceImpl
@@ -69,7 +69,7 @@ public class ServiceTest {
     }
 
     @Test
-    public void when_addContactBook_then_return_success_response() {
+     void when_addContactBook_then_return_success_response() {
         when(contactDetailRepositoryMock.save(any()))
                 .thenReturn(utilTest.contactDetailEntityMock);
         ResponseData<ContactBookData> contactBookDataResponseData = contactBookServiceImpl.addContact(utilTest.contactBookDataMock);
@@ -77,7 +77,7 @@ public class ServiceTest {
     }
 
     @Test
-    public void when_editContactBook_then_return_success_response() {
+     void when_editContactBook_then_return_success_response() {
         when(contactDetailRepositoryMock.save(any()))
                 .thenReturn(utilTest.contactDetailEntityMock);
         ResponseData<ContactBookData> contactBookDataResponseData = contactBookServiceImpl.editContact(utilTest.contactBookDataMock);

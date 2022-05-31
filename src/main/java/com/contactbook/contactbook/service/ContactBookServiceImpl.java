@@ -70,6 +70,18 @@ public class ContactBookServiceImpl {
         ContactDetailEntity contactBookEntity = contactBookRepository.save(convertDataToEntity(contactBookData));
         return successResponse(contactBookEntity);
     }
+    
+    /*
+     *  public ResponseData<ContactBookData> editContact(String name,ContactBookData contactBookData) {
+    	Optional<ContactDetailEntity> getUserDetail = contactBookRepository
+    	.findByNameEqualsIgnoreCaseAndEmailIdEqualsIgnoreCase(contactBookData.getName(),contactBookData.getEmailId());
+        ContactDetailEntity contactBookEntity = contactBookRepository.save(convertDataToEntity(contactBookData));
+        if(getUserDetail.isPresent()) {
+        	getUserDetail.get().setMobileNo(contactBookData.getMobileNo());
+        	getUserDetail.get().setCountryCode(contactBookEntity.getCountryCode());
+        	}
+        return successResponse(contactBookEntity);
+    }*/
 
     public ResponseData<ContactBookData> deleteContact(long mobileNo) {
         Optional<ContactDetailEntity> contactBookEntity = contactBookRepository.findByMobileNo(mobileNo);
